@@ -1,0 +1,14 @@
+## GET A token with right params:
+curl -X POST "http://localhost:8090/oauth2/token" -u client1:secret1 -d "grant_type=client_credentials"
+
+## Test /hello endpoint:
+curl -H "Authorization: Bearer YOUR_GENERATED_TOKEN" http://localhost:8090/api/hello
+
+
+curl http://localhost:8081/api/secure
+curl -H "Authorization: Bearer YOUR_GENERATED_TOKEN" http://localhost:8081/api/secure
+
+
+ZIPKIN:
+Sampling Rate: The spring.sleuth.sampler.probability is set to 1.0 to ensure all requests are traced (for testing purposes).
+
