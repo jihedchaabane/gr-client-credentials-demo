@@ -1,0 +1,8 @@
+
+## GET A token:
+curl -X POST -u client1:secret1 -d "grant_type=client_credentials" http://localhost:8090/oauth2/token
+
+## Test /hello endpoint:
+curl -H "Authorization: Bearer YOUR_GENERATED_TOKEN" http://localhost:8090/api/hello
+
+

@@ -1,0 +1,50 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: springboot-oauth2-client2
+  security:
+    oauth2:
+      client:
+        registration:
+          client1:
+            client-id: client2
+            client-secret: secret2
+            authorization-grant-type: client_credentials
+            scope: read
+        provider:
+          client1:
+            token-uri: http://localhost:8090/oauth2/token
+            # Explicitly disable user-info and authorization endpoints (not used in client_credentials)
+            authorization-uri: http://localhost:8090/oauth2/authorize
+            #user-info-uri: http://localhost:8090/userinfo
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8090
+
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1.0
+#logging:
+#  level:
+#    org.springframework.security: DEBUG
+#    org.springframework.web: DEBUG
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # Expose all endpoints, or specify: health, info, metrics, etc.
+  endpoint:
+    health:
+      show-details: always

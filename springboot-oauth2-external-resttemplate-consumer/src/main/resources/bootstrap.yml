@@ -1,0 +1,12 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: springboot-oauth2-external-resttemplate-consumer
+
+  # Connect to the config server to get the properties
+  cloud:
+    config:
+      uri: http://localhost:8888
+      #uri: https://localhost:8443

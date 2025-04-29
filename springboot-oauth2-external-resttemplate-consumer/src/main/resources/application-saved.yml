@@ -1,0 +1,44 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: springboot-oauth2-external-resttemplate-consumer
+
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1.0
+
+# Configuration pour les appels à l'Authorization Server
+authorization:
+  server:
+    url: http://localhost:8090/oauth2/token
+    ms1:
+      client-id: client1
+      client-secret: secret1
+    ms2:
+      client-id: client2
+      client-secret: secret2
+
+# URLs de l'API Gateway pour les appels aux microservices
+api:
+  gateway:
+    url: http://localhost:7777
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # Expose all endpoints, or specify: health, info, metrics, etc.
+  endpoint:
+    health:
+      show-details: always

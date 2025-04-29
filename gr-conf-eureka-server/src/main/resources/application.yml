@@ -1,0 +1,21 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: gr-conf-eureka-server    
+    
+eureka:
+  client:
+    eureka-server-connect-timeout-seconds: 5
+    enabled: true
+    fetch-registry: false
+    register-with-eureka: false
+    log-delta-diff: false
+
+management:
+  endpoints:
+    web.exposure.include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

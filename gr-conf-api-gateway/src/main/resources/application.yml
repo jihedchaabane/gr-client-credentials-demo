@@ -1,0 +1,50 @@
+server:
+  port: 7777
+
+spring:
+  application:
+    name: gr-conf-api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: ms1
+          #uri: http://localhost:8081
+          uri: lb://SPRINGBOOT-OAUTH2-CLIENT1
+          predicates:
+            - Path=/ms1/**
+          filters:
+            - StripPrefix=1
+        - id: ms2
+          #uri: http://localhost:8082
+          uri: lb://SPRINGBOOT-OAUTH2-CLIENT2
+          predicates:
+            - Path=/ms2/**
+          filters:
+            - StripPrefix=1
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8090
+
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1.0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # Expose all endpoints, or specify: health, info, metrics, etc.
+  endpoint:
+    health:
+      show-details: always

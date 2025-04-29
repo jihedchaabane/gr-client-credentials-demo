@@ -1,0 +1,36 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: gr-conf-config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///C:/E/TOOLS/JAVA_21/WKS_GROK/gr-conf-config-repo
+          default-label: master
+          search-paths: '{application}'
+
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1.0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # Expose all endpoints, or specify: health, info, metrics, etc.
+  endpoint:
+    health:
+      show-details: always
