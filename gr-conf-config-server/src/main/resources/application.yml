@@ -9,7 +9,7 @@ spring:
     config:
       server:
         git:
-          uri: file:///C:/E/TOOLS/JAVA_21/WKS_GROK/gr-conf-config-repo
+          uri: file:///C:/WKS__/gr-conf-config-repo
           default-label: master
           search-paths: '{application}'
 
