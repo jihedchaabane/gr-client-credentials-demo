@@ -12,7 +12,7 @@ public class ValidateUserController {
 	@RequestMapping("/validateUser")
 	public Principal user(Principal user) {
 		
-		System.out.println("security.oauth2.client.resource.userInfoUri: http://localhost:8090/validateUser");
+		System.out.println("security.oauth2.client.resource.userInfoUri: http://localhost:8764/validateUser");
 		return user;
 	}
 }

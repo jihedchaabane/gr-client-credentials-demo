@@ -8,7 +8,7 @@ spring:
 # Configuration pour les appels à l'Authorization Server
 authorization:
   server:
-    url: http://localhost:8090/oauth2/token
+    url: http://localhost:8764/oauth2/token
     ms1:
       client-id: client1
       client-secret: secret1
@@ -19,4 +19,4 @@ authorization:
 # URLs de l'API Gateway pour les appels aux microservices
 api:
   gateway:
-    url: http://localhost:7777
+    url: http://localhost:7766

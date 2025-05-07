@@ -23,9 +23,9 @@ public class Ms3Controller {
     private RestTemplate restTemplate;
 
 //    @Value("${authorization.server.url}")
-    private String authServerUrl = "http://localhost:8090/oauth2/token";
+    private String authServerUrl = "http://localhost:8764/oauth2/token";
 //  @Value("${api.gateway.url}")
-  private String apiGatewayUrl = "http://localhost:7777";
+  private String apiGatewayUrl = "http://localhost:7766";
   
   
   
@@ -60,7 +60,7 @@ public class Ms3Controller {
         return response.getBody().getAccess_token();
     }
 
-    // http://localhost:7777/ms1/api/secure
+    // http://localhost:7766/ms1/api/secure
     @GetMapping("/call/ms1/api/secure")
     public String callMs1Endpoint() {
         String token = getAccessToken(ms1ClientId, ms1ClientSecret);
@@ -77,7 +77,7 @@ public class Ms3Controller {
         return response.getBody();
     }
     
-    // http://localhost:7777/ms1/api/call-client2
+    // http://localhost:7766/ms1/api/call-client2
     @GetMapping("/call/ms1/api/call-client2")
     public String callMs2Endpoint() {
         String token = getAccessToken(ms1ClientId, ms1ClientSecret);
@@ -98,7 +98,7 @@ public class Ms3Controller {
     /**
      * MS2
      */
-    // http://localhost:7777/ms2/api/secure
+    // http://localhost:7766/ms2/api/secure
     @GetMapping("/call/ms2/api/secure/cl1")
     public String callMs12Endpoint() {
         String token = getAccessToken(ms1ClientId, ms1ClientSecret);
@@ -115,7 +115,7 @@ public class Ms3Controller {
         return response.getBody();
     }
     
-    // http://localhost:7777/ms2/api/secure
+    // http://localhost:7766/ms2/api/secure
     @GetMapping("/call/ms2/api/secure/cl2")
     public String callMs123Endpoint() {
         String token = getAccessToken(ms2ClientId, ms2ClientSecret);

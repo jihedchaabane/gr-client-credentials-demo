@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 8764
 
 spring:
   application:
@@ -7,7 +7,7 @@ spring:
   security:
     oauth2:
       authorizationserver:
-        issuer: http://localhost:8090
+        issuer: http://localhost:8764
 
 logging:
   level:

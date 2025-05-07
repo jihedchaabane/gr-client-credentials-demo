@@ -8,5 +8,5 @@ spring:
   # Connect to the config server to get the properties
   cloud:
     config:
-      uri: http://localhost:8888
+      uri: http://localhost:8762
       #uri: https://localhost:8443
